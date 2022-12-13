@@ -1,2 +1,5 @@
 # Ignore any input files. 
 *.in
+
+# Ignore OS-generated files
+.DS_Store
