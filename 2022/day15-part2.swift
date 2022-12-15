@@ -20,7 +20,6 @@ while let line = readLine() {
 
 let limit = 4000000
 for threshold in 0...limit {
-    if (threshold )
     var intervals:[Interval] = []
     for (sensor, beacon) in zip(sensors, beacons) {
         let range = sensor.distance(other: beacon)

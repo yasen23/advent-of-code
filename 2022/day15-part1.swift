@@ -27,9 +27,6 @@ while let line = readLine() {
 }
 
 intervals.sort(by: {$0.from < $1.from})
-for interval in intervals {
-    print(interval)
-}
 
 var ans:Int = 0, start:Int = intervals[0].from, end:Int = intervals[0].to
 for interval in intervals {
