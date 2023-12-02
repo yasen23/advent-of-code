@@ -1,0 +1,19 @@
+// First part
+// A column => input, per line
+// B column => reversed lines
+=JOIN("", ArrayFormula(MID(A1, LEN(A1) - SEQUENCE(1, LEN(A1))+1, 1)))
+// C column => first digit
+=REGEXEXTRACT(TO_TEXT(A1),"\d")
+// D column => last digit
+=REGEXEXTRACT(TO_TEXT(B1),"\d")
+// E column => two-digit calibration value
+=C1 * 10 + D1
+// F column => sum of calibration values (answer)
+=SUM(E1:E)
+
+// Second part
+// B column => substitute digits spelled out with letters.
+// Trap is with combined spelling, but there are only a few
+// cases since we need only the first and last digit.
+=SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(A1, "eighthree", 83), "eightwo", 82), "sevenine", 79), "fiveight", 58), "threeight", 38), "nineight", 98), "oneight", 18), "twone", 21), "nine", 9), "eight", 8), "seven", 7), "six", 6), "five", 5), "four", 4), "three", 3), "two", 2), "one", 1)
+// Other columns remain the same as part 1.
